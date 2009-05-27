@@ -2,3 +2,7 @@ lib*
 include*
 py.bundle
 .Python
+bin/py*
+bin/activate*
+bin/easy*
+bin/paver
