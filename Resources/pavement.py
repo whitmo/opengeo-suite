@@ -26,15 +26,14 @@ from paver.easy import task, options, Bunch
 from paver.setuputils import setup
 from paver.tasks import help, needs
 from setuptools import find_packages
-import pkg_resources
+import getpass
 import os
+import pkg_resources
+import pwd
 import re
 import shutil
 import subprocess
-import getpass
-import pwd
-import pip
-import tempita
+
 
 version = "0.0"
 
@@ -53,7 +52,7 @@ options(
     )
 
 APPCONF = "app-conf.cfg"
-_DIRS = "src", "var", "etc", "var/logs"
+_DIRS = "src", "var", "etc", "var/logs", "usr",
 
 @task
 def auto(default_conf=APPCONF):
