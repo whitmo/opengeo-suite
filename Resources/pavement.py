@@ -71,7 +71,7 @@ def auto(default_conf=APPCONF):
 @needs(['auto'])
 def after_bootstrap():
     call_task("dir_layout")
-
+    call_task("install_py_deps")
 
 @task
 def dir_layout():
@@ -81,6 +81,10 @@ def dir_layout():
             os.mkdir(env / p)
 
 # 0. install py packages
+
+@task
+def install_py_deps():
+    sh("python bin/pip.py install -E ./ ./py.bundle")
 
 # 1.
 # setup supervisor
